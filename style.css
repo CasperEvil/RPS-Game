@@ -1,0 +1,40 @@
+.gameBoard {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 100%;
+}
+.icon {
+    margin: 0 auto;
+    width: 31%;
+    height: 28%;
+    border: solid;
+    border-color: black;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.button {
+    width: 15%;
+    height: 30%;
+}
+.title {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    margin: 0 auto;
+    width: 50%;
+}
+#latestOutcome {
+    margin-top: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: cornflowerblue;
+    font-weight: bold;
+}
+#playerWinCounter { 
+    color: green;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#computerWinCounter {
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}
