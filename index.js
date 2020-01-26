@@ -22,35 +22,49 @@ function computerPlay() {
 function playGame(userChoice) {
 
     const computerMove = computerPlay();
+    
+    if (userChoice === computerMove) {
+        latestOutcome.textContent =`Draw! You both selected ${computerMove}`;
+    } else if (userChoice === 'rock' && computerMove === 'paper') {
+        latestOutcome.textContent ='Drats! Paper covers rock!';
+        computerWin += 1;
+        computerScore.textContent = `Computer wins: ${computerWin}`
+    } else if (userChoice === 'rock' && computerMove === 'scissors') {
+        latestOutcome.textContent = 'BOOM! Rock crushes scissors!';
+        userWin += 1;
+        playerScore.textContent = `Your wins: ${userWin}`;
+    } else if (userChoice === 'paper' && computerMove === 'rock') {
+        latestOutcome.textContent = 'Bing bang boom! Paper covers rock!';
+        userWin += 1;
+        playerScore.textContent = `Your wins: ${userWin}`;
+    } else if (userChoice === 'paper' && computerMove === 'scissors') {
+        latestOutcome.textContent = 'Ah Snip snip! Scissors cuts paper!';
+        computerWin += 1;
+        computerScore.textContent = `Computer wins: ${computerWin}`;
+    } else if (userChoice === 'scissors' && computerMove === 'rock') {
+        latestOutcome.textContent = 'Oh no! Rock crushes scissors!';
+        computerWin += 1;
+        computerScore.textContent = `Computer wins: ${computerWin}`;
+    } else if (userChoice === 'scissors' && computerMove === 'paper') {
+        latestOutcome.textContent = 'Thats one for you! Scissors cuts paper!';
+        userWin += 1;
+        playerScore.textContent = `Your wins: ${userWin}`;
+    }
 
-    while (userWin != 5 || computerWin != 5) { 
-        if (userChoice === computerMove) {
-            latestOutcome.textContent =`Draw! You both selected ${computerMove}`;
-        } else if (userChoice === 'rock' && computerMove === 'paper') {
-            latestOutcome.textContent ='Drats! Paper covers rock!';
-            computerWin += 1;
-            computerScore.textContent = `Computer wins: ${computerWin}`
-        } else if (userChoice === 'rock' && computerMove === 'scissors') {
-            latestOutcome.textContent = 'BOOM! Rock crushes scissors!';
-            userWin += 1;
-            playerScore.textContent = `Your wins: ${userWin}`;
-        } else if (userChoice === 'paper' && computerMove === 'rock') {
-            latestOutcome.textContent = 'Bing bang boom! Paper covers rock!';
-            userWin += 1;
-            playerScore.textContent = `Your wins: ${userWin}`;
-        } else if (userChoice === 'paper' && computerMove === 'scissors') {
-            latestOutcome.textContent = 'Ah Snip snip! Scissors cuts paper!';
-            computerWin += 1;
-            computerScore.textContent = `Computer wins: ${computerWin}`;
-        } else if (userChoice === 'scissors' && computerMove === 'rock') {
-            latestOutcome.textContent = 'Oh no! Rock crushes scissors!';
-            computerWin += 1;
-            computerScore.textContent = `Computer wins: ${computerWin}`;
-        } else if (userChoice === 'scissors' && computerMove === 'paper') {
-            latestOutcome.textContent = 'Thats one for you! Scissors cuts paper!';
-            userWin += 1;
-            playerScore.textContent = `Your wins: ${userWin}`;
-        }
+    if (userWin === 5) {
+        window.alert('Congratulations, You have won! Play again?')
+        userWin = 0;
+        computerWin = 0;
+        playerScore.textContent = `Your wins: ${userWin}`;
+        computerScore.textContent = `Computer wins: ${computerWin}`;
+        latestOutcome.textContent = '';
+    } else if (computerWin === 5) {
+        window.alert('Better luck next time, You have lost! Play again?')
+        computerWin = 0;
+        userWin = 0;
+        playerScore.textContent = `Your wins: ${userWin}`;
+        computerScore.textContent = `Computer wins: ${computerWin}`;
+        latestOutcome.textContent = '';
     }
     return null
 }
